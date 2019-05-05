@@ -1,0 +1,33 @@
+<%- include('../includes/header.ejs') %>
+
+<body>
+  <%- include('../includes/headbody.ejs') %>
+
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Admin</h1>
+      <form action="/admin/addproduct" method="POST">
+        <p>
+          Name: <input type="text" name="title">
+        </p>
+        <p>
+          Price: <input type="text" name="price">
+        </p>
+        <p>
+          Images: <input type="text" name="images">
+        </p>
+        <p>
+          Description: <input type="text" name="description">
+        </p>
+
+        <button class="btn btn-outline-success" type="submit">Thêm</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('../includes/footer.ejs');%>
+</body>
+
+</html>

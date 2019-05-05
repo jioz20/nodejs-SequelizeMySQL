@@ -1,0 +1,40 @@
+<%- include('../includes/header.ejs') %>
+
+<body>
+  <%- include('../includes/headbody.ejs') %>
+
+
+  <div style="margin-top: 100px;">
+    <div class="container">
+
+      <%
+            if(orders.length <= 0)
+            {
+       %>
+                <span class="alert alert-danger">No problem !</span>
+       <%
+            }
+            else
+            {
+       %>
+                <ul>
+                    <% 
+                     orders.forEach(order => 
+                        {
+                    %>
+                        <li>
+                            <h1># <%- order.id ;%></h1>
+                        </li>
+                    <%
+                        })
+                    %>
+                </ul>
+       <%
+            }
+       %>
+    </div>
+  </div>
+</body>
+<%- include('../includes/footer.ejs');%>
+
+</html>

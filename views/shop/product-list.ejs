@@ -1,0 +1,60 @@
+<%- include('../includes/header.ejs') %>
+<body>
+        <%- include('../includes/headbody.ejs') %>
+
+
+    <%
+        if(prods.length > 0)
+        {
+    %>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-3">Products</h1>
+           
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+    
+        <%
+            prods.forEach((product)=>{
+        %>
+            <div class="col-md-4 text-center">
+                <h2><%- product.title; %></h2>
+                <img src="./images/2.jpg" class="img-fluid" alt="Responsive image" style="width: 300px; height: 200px;">
+                <p></p>
+                <h4 > Price: <span class="text-danger">129$</span></h4>
+
+                <div class="text-center">
+                        <form action="/postcard" method="POST">
+                            <input type="hidden" name="id" value="<%- product.id%>">
+                            <button class="btn btn-outline-success" type="submit">Add to card</button> &nbsp;
+                        </form>
+                    <a href="/product-detail/<%- product.id;%>" class="btn btn-outline-warning">Detail</a>
+                </div>
+            </div>
+        <%
+            });
+        %>
+
+        </div>
+    </div>
+        
+    <%
+        }
+        else
+        {
+    %>
+            <div class="col-md-12 text-center">
+                <div class="alert alert-danger">No Product</div>
+            </div>
+            
+    <%
+        }
+    %>
+    <%- include('../includes/footer.ejs');%>
+</body>
+
+</html>

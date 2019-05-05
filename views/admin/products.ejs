@@ -1,0 +1,48 @@
+<%- include('../includes/header.ejs') %>
+
+<body>
+  <%- include('../includes/headbody.ejs') %>
+
+
+  <div style="margin-top: 100px;">
+    <div class="container">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%
+            if(prods.length > 0)
+            {
+              prods.forEach((product)=>{
+        %>
+            <tr>
+              <th scope="row"><%- product.id;%></th>
+              <td><%- product.title;%></td>
+              <td><%- product.price;%></td>
+              <td>
+                <div class="form-group">
+                  <a href="/admin/editproduct/<%- product.id; %>" class="btn btn-outline-primary" style="width: 80px;">Update</a>
+                </div>
+                <div class="form-group">
+                    <a href="/admin/deleteproduct/<%- product.id; %>" class="btn btn-outline-danger" onclick="return confirm('Are you sure?')"  style="width: 80px;">Delete</a>
+                  </div>
+              </td>
+            </tr>
+        <%
+          })
+          }
+        %>
+        </tbody>
+      </table>
+    
+    </div>  
+</div>
+</body>
+<%- include('../includes/footer.ejs');%>
+</html>
